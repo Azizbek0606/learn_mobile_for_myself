@@ -1,51 +1,51 @@
 // import 'dart:io';
 
 // class SimpleClass {
-//   String _name;
-//   int _age;
+//   String __name;
+//   int __age;
 
-//   SimpleClass(this._name, this._age) {
+//   SimpleClass(this.__name, this.__age) {
+//     if (__name == "") {
+//       __name = "default _name";
+//     }
+//     if (__age > 3 || __age == '') {
+//       __age = 3;
+//     }
+//   }
+
+//   set _name(String _name) {
 //     if (_name == "") {
-//       _name = "default name";
-//     }
-//     if (_age > 3 || _age == '') {
-//       _age = 3;
-//     }
-//   }
-
-//   set name(String name) {
-//     if (name == "") {
-//       this._name = "default name";
+//       this.__name = "default _name";
 //     } else {
-//       this._name = name;
+//       this.__name = _name;
 //     }
 //   }
 
-//   String get get_name => _name;
+//   String get get__name => __name;
 
-//   set age(int age) {
-//     if (age > 3 && age == '') {
-//       this._age = 3;
+//   set _age(int _age) {
+//     if (_age > 3 && _age == '') {
+//       this.__age = 3;
 //     } else {
-//       this._age = age;
+//       this.__age = _age;
 //     }
 //   }
 
-//   int get get_age => _age;
+//   int get get__age => __age;
 // }
 
 // void main() {
 //   print("Ism kiriting:");
-//   String input_name = stdin.readLineSync()!;
+//   String input__name = stdin.readLineSync()!;
 //   print("Yosh kiriting:");
-//   int input_age = int.parse(stdin.readLineSync()!);
-//   SimpleClass second_class = SimpleClass(input_name, input_age);
-//   print("Ism: ${second_class.get_name}");
-//   print("Yosh: ${second_class.get_age}");
-//   second_class.age = 2;
-//   second_class.name = "Azizbek";
-//   print("Yangilangan ism: ${second_class.get_name}");
-//   print("Yangilangan yosh: ${second_class.get_age}");
+//   int input__age = int.parse(stdin.readLineSync()!);
+//   SimpleClass _second_num_class = SimpleClass(input__name, input__age);
+//   print("Ism: ${_second_num_class.get__name}");
+//   print("Yosh: ${_second_num_class.get__age}");
+//   _second_num_class._age = 2;
+//   _second_num_class._name = "Azizbek";
+//   print("Yangilangan ism: ${_second_num_class.get__name}");
+//   print("Yangilangan yosh: ${_second_num_class.get__age}");
 // }
 
 // task 2
@@ -53,20 +53,21 @@
 // import 'dart:io';
 
 // class Construktor {
-//   String name;
-//   int age;
-
-//   Construktor(this.name, this.age);
+//   String _name;
+//   int _age;
+//   Construktor(this._name, this._age);
+//   get get_name => this._name;
+//   get get_age => this._age;
 // }
 
 // void main() {
 //   print("Ism kiriting:");
-//   String input_name = stdin.readLineSync()!;
+//   String input__name = stdin.readLineSync()!;
 //   print("Yosh kiriting:");
-//   int input_age = int.parse(stdin.readLineSync()!);
-//   Construktor second_class = Construktor(input_name, input_age);
-//   print("yosh ${second_class.age}");
-//   print("Ism ${second_class.name}");
+//   int input__age = int.parse(stdin.readLineSync()!);
+//   Construktor _second_num_class = Construktor(input__name, input__age);
+//   print("yosh ${_second_num_class.get_age}");
+//   print("Ism ${_second_num_class.get_name}");
 // }
 
 // Task3
@@ -77,55 +78,83 @@
 // }
 
 // void main() {
-//   Read_only second_class = Read_only();
-//   print("matn: ${second_class.get_text}");
+//   Read_only _second_num_class = Read_only();
+//   print("matn: ${_second_num_class.get_text}");
 // }
 
 // task 4
 
 // import 'dart:io';
 
-// class Count {
-//   int first;
-//   int second;
-//   Count(this.first, this.second);
-//   int plus() {
-//     return this.first + this.second;
-//   }
+// import 'dart:io';
 
-//   int minus() {
-//     return this.first - this.second;
+// class Count {
+//   String _event;
+//   int _first_num;
+//   int _second_num;
+//   Count(this._event, this._first_num, this._second_num);
+//   void math() {
+//     if (_event == "+") {
+//       _plus();
+//     } else if (_event == "-") {
+//       _minus();
+//     } else {
+//       print("Noto'g'ri format: '+' yoki '-' kiriting.");
+//     }
+//   }
+//   void _plus() {
+//     print(_first_num + _second_num);
+//   }
+//   void _minus() {
+//     print(_first_num - _second_num);
 //   }
 // }
-
 // void main() {
-//   print("birinchi son");
+//   print("birinchi son:");
 //   int first_num = int.parse(stdin.readLineSync()!);
 //   print("ikkinchi son:");
 //   int second_num = int.parse(stdin.readLineSync()!);
-//   Count count_class = Count(first_num, second_num);
-//   print("qo'shilsa: ${count_class.plus()}");
-//   print("ayrilsa: ${count_class.minus()}");
+//   print("Amalni kiriting + yoki -:");
+//   String event = stdin.readLineSync()!;
+//   Count count_class = Count(event, first_num, second_num);
+//   count_class.math();
 // }
 
 //  task5
+
+// import 'dart:io';
+
 // class TemperatureConverter {
-//   static double celsiusToFahrenheit(double celsius) {
-//     return (celsius * 9 / 5) + 32;
+//   String _farOrCel;
+//   double _weather;
+//   TemperatureConverter(this._farOrCel, this._weather);
+
+//   void convert() {
+//     if (_farOrCel.toLowerCase() == "c") {
+//       _celsiusToFahrenheit(_weather);
+//     } else if (_farOrCel.toLowerCase() == "f") {
+//       _fahrenheitToCelsius(_weather);
+//     } else {
+//       print("Noto'g'ri format: 'c' yoki 'f' kiriting.");
+//     }
 //   }
 
-//   static double fahrenheitToCelsius(double fahrenheit) {
-//     return (fahrenheit - 32) * 5 / 9;
+//   void _celsiusToFahrenheit(double celsius) {
+//     print("${celsius}°C = ${(celsius * 9 / 5) + 32}°F");
+//   }
+
+//   void _fahrenheitToCelsius(double fahrenheit) {
+//     print("${fahrenheit}°F = ${(fahrenheit - 32) * 5 / 9}°C");
 //   }
 // }
 
 // void main() {
-//   double celsius = 25.0;
-//   double fahrenheit = 77.0;
-
-//   print("${celsius} °C =  ${TemperatureConverter.celsiusToFahrenheit(celsius)} °F");
-//   print(
-//       "${fahrenheit} °F ${TemperatureConverter.fahrenheitToCelsius(fahrenheit)} °C");
+//   print("Haroratni kiriting:");
+//   double _weather = double.parse(stdin.readLineSync()!);
+//   print("Farangeytga o'tkazish uchun 'f', Selsiyga o'tkazish uchun 'c' ni kiriting:");
+//   String _farOrCel = stdin.readLineSync()!;
+//   TemperatureConverter converter = TemperatureConverter(_farOrCel, _weather);
+//   converter.convert();
 // }
 
 // task 6
@@ -167,25 +196,161 @@
 //   print('Hisob raqami: ${myAccount.accountNumber}');
 //   myAccount.deposit = 500.0;
 //   myAccount.withdraw = 200.0;
-//   pr// void main() {
-//   Student new_student = Student('azizbek', 17, 4);
-//   print("ismi: ${new_student.get_name}");
-//   print("yoshi: ${new_student.get_age}");
-//   print("Bali: ${new_student.get_ball}");
-// }
-int('Joriy Balans: \$${myAccount.balance}');
+//   print('Joriy Balans: ${myAccount.balance}');
 // }
 
 // task 7
 
+// import 'dart:io';
 // class Student {
-//   String name;
-//   int age;
-//   int ball;
+//   String _name;
+//   int _age;
+//   int _ball;
 
-//   Student(this.name, this.age, this.ball);
-//   get get_name => name;
-//   get get_age => age;
-//   get get_ball => ball;
+//   Student(this._name, this._age, this._ball);
+//   get get_name => _name;
+//   get get_age => _age;
+//   get get_ball => _ball;
+// }
+// void main() {
+//   print("ism kiriting:");
+//   String inp_name = stdin.readLineSync()!;
+//   print("ballni kiriting");
+//   int inp_age = int.parse(stdin.readLineSync()!);
+//   print("yoshni kiriting");
+//   int inp_ball = int.parse(stdin.readLineSync()!);
+//   Student new_student = Student(inp_name , inp_age, inp_ball);
+//   print("ismi: ${new_student.get_name}");
+//   print("yoshi: ${new_student.get_age}");
+//   print("Bali: ${new_student.get_ball}");
 // }
 
+//  task 8
+
+// import 'dart:io';
+
+// class Person {
+//   String _name;
+//   int _age;
+
+//   Person(this._name, this._age) {
+//     setName = _name;
+//     setAge = _age;
+//   }
+
+//   set setName(String name) {
+//     if (name.isNotEmpty) {
+//       _name = name;
+//     } else {
+//       print("Ism bo'sh bo'lishi mumkin emas.");
+//     }
+//   }
+
+//   String get getName => _name;
+
+//   set setAge(int age) {
+//     if (age >= 0 && age <= 80) {
+//       _age = age;
+//     } else {
+//       print("Yosh 0 dan 80 gacha bo'lgan son bo'lishi kerak.");
+//     }
+//   }
+
+//   int get getAge => _age;
+
+//   void display() {
+//     print("Ism: ${_name}, Yosh: ${_age}");
+//   }
+// }
+
+// void main() {
+//   print("Ism kiriting:");
+//   String inp_name = stdin.readLineSync()!;
+//   print("Yoshni kiriting:");
+//   int inp_age = int.parse(stdin.readLineSync()!);
+//   Person person = Person(inp_name, inp_age);
+//   person.display();
+// }
+
+// task 9
+
+// import 'dart:io';
+
+// class Square {
+//   int _first_num;
+//   int _second_num;
+
+//   Square(this._first_num, this._second_num);
+//   void display() {
+//     _get_peri();
+//   }
+
+//   void _get_peri() {
+//     print("kvadrat perimetri: ${(_first_num + _second_num) * 2}");
+//   }
+// }
+
+// void main() {
+//   print("to'rtburchak bo'yi: ");
+//   int first_num = int.parse(stdin.readLineSync()!);
+//   print("to'rtburchak eni: ");
+//   int second_num = int.parse(stdin.readLineSync()!);
+//   Square square = Square(first_num, second_num);
+//   square.display();
+// }
+
+// task 10
+// import 'dart:io';
+
+// class Book {
+//   String _book_name;
+//   String _Book_title;
+//   int _book_year;
+//   Book(this._book_name, this._Book_title, this._book_year);
+
+//   get get_book_name => this._book_name;
+//   get get_book_title => this._Book_title;
+//   get get_book_year => this._book_year;
+// }
+
+// void main() {
+//   print("Kitob nomi: ");
+//   String name = stdin.readLineSync()!;
+//   print("Kitob yozuvchisi: ");
+//   String title = stdin.readLineSync()!;
+//   print("Kitob ishlab chiqarilgan vaqt: ");
+//   int year = int.parse(stdin.readLineSync()!);
+//   Book new_book = Book(name, title, year);
+//   print("kitob nomi: ${new_book.get_book_name}");
+//   print("Kitob ishlab chiqarilgan sana: ${new_book.get_book_year}");
+//   print("Kitob yozuvchisi: ${new_book.get_book_title}");
+// }
+
+// task 11
+import 'dart:io';
+
+class CheckPassword {
+  final String _password;
+  CheckPassword(this._password) {
+    check_and_set_password = _password;
+  }
+  set check_and_set_password(password) {
+    int count_upper_text = 0;
+    int count_var = 0;
+    int count_num = 0;
+    for (String i in password) {
+      if (i.toLowerCase() != i) {
+        count_upper_text++;
+      }
+      if (i.contains(RegExp(r'[0-9]'))) {
+        count_num++;
+      }
+      if (i.contains(RegExp(r'[,./\|!@#$%^&*":]'))) {
+        count_num++;
+      }
+    }
+    if (count_upper_text >= 1 && count_num >= 1 && count_var >= 1) {
+      _password = password;
+    }
+  }
+}
