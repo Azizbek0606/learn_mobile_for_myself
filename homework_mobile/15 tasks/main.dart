@@ -327,30 +327,191 @@
 // }
 
 // task 11
-import 'dart:io';
 
-class CheckPassword {
-  final String _password;
-  CheckPassword(this._password) {
-    check_and_set_password = _password;
-  }
-  set check_and_set_password(password) {
-    int count_upper_text = 0;
-    int count_var = 0;
-    int count_num = 0;
-    for (String i in password) {
-      if (i.toLowerCase() != i) {
-        count_upper_text++;
-      }
-      if (i.contains(RegExp(r'[0-9]'))) {
-        count_num++;
-      }
-      if (i.contains(RegExp(r'[,./\|!@#$%^&*":]'))) {
-        count_num++;
-      }
-    }
-    if (count_upper_text >= 1 && count_num >= 1 && count_var >= 1) {
-      _password = password;
-    }
-  }
-}
+// import 'dart:io';
+
+// class CheckPassword {
+//   String _password;
+//   CheckPassword(this._password) {
+//     check_and_set_password = _password;
+//   }
+
+//   set check_and_set_password(String password) {
+//     int count_upper_text = 0;
+//     int count_special_char = 0;
+//     int count_num = 0;
+
+//     if (password.length >= 8) {
+//       for (int i = 0; i < password.length; i++) {
+//         String char = password[i];
+//         if (char.toUpperCase() == char && char.toLowerCase() != char) {
+//           count_upper_text++;
+//         }
+//         if (RegExp(r'\d').hasMatch(char)) {
+//           count_num++;
+//         }
+//         if (RegExp(r'[,./\|!@#$%^&*":]').hasMatch(char)) {
+//           count_special_char++;
+//         }
+//       }
+//     } else {
+//       print("ko'proq belgi kiriting");
+//     }
+//     if (count_upper_text >= 1 && count_num >= 1 && count_special_char >= 1) {
+//       _password = password;
+//       print("Parol muvaffaqiyatli saqlandi");
+//     } else {
+//       print("Qayta urinib ko'ring");
+//     }
+//   }
+// }
+
+// void main() {
+//   print("Parol Kiriting: ");
+//   String password = stdin.readLineSync()!;
+//   CheckPassword new_class_pass = CheckPassword(password);
+// }
+
+// task 12
+// import 'dart:io';
+
+// class Calculate {
+//   int _first_num;
+//   int _second_num;
+//   String _event;
+//   Calculate(this._first_num, this._second_num, this._event);
+//   void show_result() {
+//     if (_event == "+") {
+//       _plus();
+//     } else if (_event == '-') {
+//       _minus();
+//     } else if (_event == "*") {
+//       _increase();
+//     } else if (_event == "/") {
+//       _division();
+//     } else {
+//       print("xato amal kiritildi");
+//     }
+//   }
+
+//   void _plus() {
+//     print("sonlar qo'shilganda ${_first_num + _second_num}");
+//   }
+
+//   void _minus() {
+//     print("sonlar qo'shilganda ${_first_num - _second_num}");
+//   }
+
+//   void _increase() {
+//     print("sonlar qo'shilganda ${_first_num * _second_num}");
+//   }
+
+//   void _division() {
+//     print("sonlar qo'shilganda ${_first_num / _second_num}");
+//   }
+// }
+
+// void main() {
+//   print("Birinchi son: ");
+//   int first_num = int.parse(stdin.readLineSync()!);
+//   print("Ikkinchi son: ");
+//   int second_num = int.parse(stdin.readLineSync()!);
+//   print("Birinchi son: ");
+//   String char_event = stdin.readLineSync()!;
+//   Calculate new_calculate = Calculate(first_num, second_num, char_event);
+//   new_calculate.show_result();
+// }
+
+// import 'dart:math';
+
+// class Randon_num {
+//   int _qiymat = 0;
+//   final Random _rnd = Random();
+
+//   void tashla() {
+//     _qiymat = _rnd.nextInt(6) + 1;
+//   }
+
+//   int get qiymat => _qiymat;
+// }
+
+// void main() {
+//   final zar = Randon_num();
+//   zar.tashla();
+//   print('Tashlangan zar qiymati: ${zar.qiymat}');
+//   zar.tashla();
+//   print('Qayta tashlangan zar qiymati: ${zar.qiymat}');
+// }
+
+// task 14
+
+// import 'dart:io';
+
+// class Timer {
+//   int _timer_num;
+//   Timer(this._timer_num);
+//   void _timer_func() async {
+//     for (int i = 1; i <= _timer_num; i++) {
+//       await Future.delayed(Duration(seconds: 1));
+//       print(i);
+//     }
+//   }
+
+//   set change_timer(new_time) {
+//     _timer_num = new_time;
+//   }
+
+//   void restart() {
+//     _timer_func();
+//   }
+
+//   void start_timer() {
+//     _timer_func();
+//   }
+// }
+// void main() {
+//   print("timer davomiligini kiriting: ");
+//   int input_time = int.parse(stdin.readLineSync()!);
+//   Timer new_time = Timer(input_time);
+//   new_time.start_timer();
+// }
+
+// task 15
+
+// import 'dart:io';
+
+// class Personddress {
+//   String _name;
+//   String _street;
+//   int _postal_code;
+//   Personddress(this._name, this._street, this._postal_code);
+//   set set_name(new_name) {
+//     _name = new_name;
+//   }
+
+//   set set_street(new_street) {
+//     _street = new_street;
+//   }
+
+//   set set_code(new_code) {
+//     _postal_code = new_code;
+//   }
+
+//   get get_name => this._name;
+//   get get_street => this._street;
+//   get get_postal_code => this._postal_code;
+// }
+
+// void main() {
+//   print("ism kiriting");
+//   String name = stdin.readLineSync()!;
+//   print("manzlni kiriting");
+//   String street = stdin.readLineSync()!;
+//   print("pochta indexini kiriting");
+//   int postal_index = int.parse(stdin.readLineSync()!);
+//   Personddress new_addres = Personddress(name, street, postal_index);
+//   print("ism: ${new_addres.get_name}");
+//   print("manzil ${new_addres.get_street}");
+//   print("pochta index: ${new_addres.get_postal_code}");
+//   new_addres._postal_code = 12;
+// }
