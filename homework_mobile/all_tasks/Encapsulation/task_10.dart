@@ -46,5 +46,4 @@ void main() {
   print("kitob nomi: ${new_book.get_book_name}");
   print("Kitob ishlab chiqarilgan sana: ${new_book.get_book_year}");
   print("Kitob yozuvchisi: ${new_book.get_book_title}");
-  print("Yangi Kitob nomi: ");
 }
