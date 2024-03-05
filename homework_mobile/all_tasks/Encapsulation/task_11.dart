@@ -36,7 +36,7 @@ class CheckPassword {
           print("parolda kamida bitta son ishtirok etish shart !");
         }
       } else {
-        print("PArolda kamida bitta belgi bo'lishi shart");
+        print("Parolda kamida bitta belgi bo'lishi shart");
       }
     } else {
       print(
@@ -51,4 +51,5 @@ void main() {
   print("Parol Kiriting: ");
   String password = stdin.readLineSync()!;
   CheckPassword new_password = CheckPassword(password);
+  print("saqlangan Parol: ${new_password.get_password}");
 }
