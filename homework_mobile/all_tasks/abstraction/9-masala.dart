@@ -24,3 +24,4 @@ void main() {
   square1.Draw();
   rectangle1.Draw();
 }
+
