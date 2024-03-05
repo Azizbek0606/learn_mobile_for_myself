@@ -1,15 +1,27 @@
 class Vehicle {
   void Start() {
-    print("Velosped yurdi");
+    print("yurdi");
   }
 
   void Stop() {
-    print("Velosped yurishdan toxtadi");
+    print("toxtadi");
   }
 }
 
+class Bike extends Vehicle {
+  @override
+  void Start() {
+    print("velosiped yurdi");
+  }
+  @override
+  void Stop() {
+    print("velosiped yurishdan to'xtadi");
+  }
+}
+
+
 void main() {
-  Vehicle myVehicle = Vehicle();
+  Bike myVehicle = Bike();
 
   myVehicle.Start();
   myVehicle.Stop();

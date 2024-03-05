@@ -51,10 +51,10 @@ void main() {
 
   olma1.Peel();
   olma1.Eat();
-  print("****************************");
+  
   banan1.Peel();
   banan1.Eat();
-  print("****************************");
+  
   apelsen1.Peel();
   apelsen1.Eat();
 }

@@ -50,10 +50,10 @@ void main() {
   Employye desinger = Desinger();
   developer.Work();
   developer.TakeWork();
-  print("******************************");
+
   manager.Work();
   manager.TakeWork();
-  print("*****************************");
+  
   desinger.Work();
   desinger.TakeWork();
 }

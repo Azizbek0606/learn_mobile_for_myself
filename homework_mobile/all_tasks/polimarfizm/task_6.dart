@@ -24,11 +24,6 @@ class Cow extends Animal {
     print('Cow : Muuu ! muo! ');
   }
 }
-
-void animalSounds(Animal animal) {
-  animal.makeSound();
-}
-
 void main() {
   Animal dog = Dog();
   Animal cat = Cat();

@@ -51,10 +51,10 @@ void main() {
 
   audio.Play();
   audio.Pause();
-  print("***********************************");
+  
   video.Play();
   video.Pause();
-  print("***********************************");
+  
   image.Play();
   image.Pause();
 }

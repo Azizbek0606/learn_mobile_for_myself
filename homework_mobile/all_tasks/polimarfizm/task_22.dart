@@ -50,10 +50,10 @@ void main() {
   Shape doira = Doira();
   kvadrat.Draw();
   kvadrat.Move();
-  print("*************************");
+  
   uchburchak.Draw();
   uchburchak.Move();
-  print("*************************");
+  
   doira.Draw();
   doira.Move();
 }

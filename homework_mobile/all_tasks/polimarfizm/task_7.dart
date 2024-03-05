@@ -1,6 +1,6 @@
 class Employee {
   void calculateSalary() {
-    print("Ishi haqi hisoblansin");
+    print("Ishi haqi");
   }
 }
 

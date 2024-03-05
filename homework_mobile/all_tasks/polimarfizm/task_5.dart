@@ -26,20 +26,13 @@ class Cat extends Animal {
   }
 }
 
-void animalSounds(Animal animal) {
-  animal.makeSound();
-}
-
 void main() {
-  Animal dog = Dog();
-  Animal cat = Cat();
+  Dog dog = Dog();
+  Cat cat = Cat();
 
   dog.makeSound();
+  dog.fetch();
+
+  cat.scratch();
   cat.makeSound();
-
-  Dog myDog = Dog();
-  myDog.fetch();
-
-  animalSounds(dog);
-  animalSounds(cat);
 }

@@ -52,12 +52,12 @@ class CheckingAccount extends BankAccount {
 }
 
 void main() {
-  var savingsAccount = SavingsAccount(balance: 1000);
+  SavingsAccount savingsAccount = SavingsAccount(balance: 1000);
   savingsAccount.deposit(500);
   savingsAccount.withdraw(2000);
   savingsAccount.withdraw(200);
 
-  var checkingAccount = CheckingAccount(balance: 2000);
+  CheckingAccount checkingAccount = CheckingAccount(balance: 2000);
   checkingAccount.deposit(1000);
   checkingAccount.withdraw(2500);
   checkingAccount.withdraw(200);
