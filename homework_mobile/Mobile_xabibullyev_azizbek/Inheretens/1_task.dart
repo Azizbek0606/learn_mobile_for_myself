@@ -12,8 +12,7 @@ class Shape {
 
 class Circle extends Shape {
   double radius;
-
-  Circle(String color, this.radius) : super(color) {
+  Circle(String color, this.radius ) : super(color) {
     calculateArea();
   }
 

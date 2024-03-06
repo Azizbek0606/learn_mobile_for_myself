@@ -6,20 +6,22 @@ class Person {
 }
 
 class Male extends Person {
-  Male(String name, String gender) : super(name, gender);
+  String work;
+  Male(String name, String gender, this.work) : super(name, gender);
 }
 
 class Female extends Person {
-  Female(String name, String gender) : super(name, gender);
+  String work;
+  Female(String name, String gender , this.work) : super(name, gender);
 }
 
 void main() {
-  Male person1 = Male("Dilshod", "Erkak");
-  Female person2 = Female("Jasmina", "Ayol");
+  Male person1 = Male("Dilshod", "Erkak" , "Developer");
+  Female person2 = Female("Jasmina", "Ayol" , "Designer");
 
   print(person1.name);
   print(person1.gender);
-  
+
   print(person2.name);
   print(person2.gender);
 }

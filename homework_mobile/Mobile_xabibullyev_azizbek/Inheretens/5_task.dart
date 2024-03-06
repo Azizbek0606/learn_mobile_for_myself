@@ -6,19 +6,21 @@ class Animal {
 }
 
 class Cat extends Animal {
-  Cat(String turi, String ovozi) : super(turi, ovozi);
+  String cat_name;
+  Cat(String turi, String ovozi, this.cat_name) : super(turi, ovozi);
 }
 
 class Dog extends Animal {
-  Dog(String turi, String ovozi) : super(turi, ovozi);
+  String dog_name;
+  Dog(String turi, String ovozi, this.dog_name) : super(turi, ovozi);
 }
 
 void main() {
-  Cat zumradpishak = Cat("Nomi : Kalxoz", "Ovozi :  Miovvvv");
-  Dog zumradkuchuk = Dog("Nomi : Kalxoz", "Ovozi : Wowowow");
+  Cat zumradpishak = Cat("Nomi : Kalxoz", "Ovozi :  Miovvvv", "Najm");
+  Dog zumradkuchuk = Dog("Nomi : Kalxoz", "Ovozi : Wowowow", "To'rtKo'z");
   print(zumradpishak.turi);
   print(zumradpishak.ovozi);
-  
+
   print(zumradkuchuk.turi);
   print(zumradkuchuk.ovozi);
 }

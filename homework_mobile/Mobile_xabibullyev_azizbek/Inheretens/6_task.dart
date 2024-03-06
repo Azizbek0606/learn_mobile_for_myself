@@ -6,21 +6,24 @@ class Book {
 }
 
 class FictionBook extends Book {
-  FictionBook(String muallif, String sarlavha) : super(muallif, sarlavha);
+  int page;
+  FictionBook(String muallif, String sarlavha, this.page)
+      : super(muallif, sarlavha);
 }
 
 class NonfictionBook extends Book {
-  NonfictionBook(String mualiff, String sarlavha) : super(mualiff, sarlavha);
+  int page;
+  NonfictionBook(String mualiff, String sarlavha , this.page) : super(mualiff, sarlavha);
 }
 
 void main() {
-  FictionBook shumbola = FictionBook("G'afur G'ulom", "Shum bola asari ");
+  FictionBook shumbola = FictionBook("G'afur G'ulom", "Shum bola asari " , 300);
   NonfictionBook gulverning_sayohatlari =
-      NonfictionBook("Stiff", "Gulverning Sayohatlari");
+      NonfictionBook("Stiff", "Gulverning Sayohatlari" , 230);
 
   print(shumbola.muallif);
   print(shumbola.sarlavha);
-  
+
   print(gulverning_sayohatlari.muallif);
   print(gulverning_sayohatlari.sarlavha);
 }

@@ -13,16 +13,18 @@ class BankAccount {
 }
 
 class SavingsAccount extends BankAccount {
-  SavingsAccount(double balance) : super(balance);
+  String user_name;
+  SavingsAccount(double balance, this.user_name) : super(balance);
 }
 
 class CheckingaAccount extends BankAccount {
-  CheckingaAccount(double balance) : super(balance);
+  String password;
+  CheckingaAccount(double balance, this.password) : super(balance);
 }
 
 void main() {
-  SavingsAccount savingsAccount = SavingsAccount(200.000);
-  CheckingaAccount checkingaAccount = CheckingaAccount(3000.000);
+  SavingsAccount savingsAccount = SavingsAccount(200.000, "Azizbek_0606");
+  CheckingaAccount checkingaAccount = CheckingaAccount(3000.000 , "Qwert.5474");
 
   savingsAccount.Deposit();
   checkingaAccount.WithDraw();

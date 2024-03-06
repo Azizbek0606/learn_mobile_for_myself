@@ -5,22 +5,22 @@ class Person {
 }
 
 class Student extends Person {
-  Student(
-    String name,
-    int age,
-  ) : super(name, age);
+  int ball;
+  Student(String name, int age, this.ball) : super(name, age);
 }
 
 class Teacher extends Person {
+  int expriment;
   Teacher(
     String name,
     int age,
+    this.expriment
   ) : super(name, age);
 }
 
 void main() {
-  Student student1 = Student("Dilshod", 17);
-  Teacher teacher1 = Teacher("Olimjon", 37);
+  Student student1 = Student("Azizbek", 17 , 5);
+  Teacher teacher1 = Teacher("Akbar", 35, 5);
 
   print(student1.name);
   print(student1.age);
