@@ -1,36 +1,27 @@
 class Food {
-  void cook() {
-    print("Ovqat tayolab boshlandi");
-  }
+  void cook() {}
 }
 
 class Pizza extends Food {
+  String type_pizza;
+  Pizza(this.type_pizza);
   @override
-  void cook() {
-    print("Pitsa tayyorlandi");
-  }
+  void cook() {}
 }
 
 class Burger extends Food {
+  int count_meat;
+  Burger(this.count_meat);
   @override
   void cook() {
     print("Burger tayyor bo'ldi");
   }
 }
 
-class Makaron extends Food {
-  @override
-  void cook() {
-    print("Makaron tayyorlandi");
-  }
-}
-
 void main() {
-  Food pizza = Pizza();
-  Food burger = Burger();
-  Food makron = Makaron();
+  Food pizza = Pizza("qo'ziqorinli");
+  Food burger = Burger(2);
 
   pizza.cook();
   burger.cook();
-  makron.cook();
 }
