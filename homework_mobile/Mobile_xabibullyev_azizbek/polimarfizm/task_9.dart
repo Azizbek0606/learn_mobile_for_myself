@@ -1,30 +1,34 @@
 class BankAccout {
-  void Deposit() {
+  void deposit() {
     print("Deposit Kiritildi ");
   }
 
-  void Withdraw() {
+  void withdraw() {
     print("Pul chiqarildi");
   }
 }
 
-class deposit extends BankAccout {
+class Deposit extends BankAccout {
+  double money;
+  Deposit(this.money);
   @override
-  void Deposit() {
+  void deposit() {
     print("Pul kiritilidi");
   }
 }
 
-class withdraw extends BankAccout {
+class Withdraw extends BankAccout {
+  double withdraw_len;
+  Withdraw(this.withdraw_len);
   @override
-  void Withdraw() {
+  void withdraw() {
     print("Pul Chiqarib olindi");
   }
 }
 
 void main() {
-  BankAccout Deposit = deposit();
-  BankAccout Withdraw = withdraw();
-  Deposit.Deposit();
-  Withdraw.Withdraw();
+  Deposit new_deposit = Deposit(127.02);
+  Withdraw new_withdraw = Withdraw(102.45);
+  new_deposit.deposit();
+  new_withdraw.withdraw();
 }
