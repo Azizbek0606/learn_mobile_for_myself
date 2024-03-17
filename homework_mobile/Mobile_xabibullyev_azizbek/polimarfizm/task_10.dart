@@ -23,3 +23,11 @@ class ChangeAccount extends BankAccount {
     print("o'zgartirildi");
   }
 }
+
+void main() {
+  SaveAccount new_account = SaveAccount("azizbek0606", "parol.5474");
+  ChangeAccount update_account =
+      ChangeAccount("azizbek_0606", "yangiparol.5474");
+  new_account.save_account();
+  update_account.change_account();
+}
