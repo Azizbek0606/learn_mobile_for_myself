@@ -9,6 +9,8 @@ class Mobile {
 }
 
 class Phone1 extends Mobile {
+  String phone_name;
+  Phone1(this.phone_name);
   @override
   void TurnOn() {
     print("Qurilma Ishga Tushdi");
@@ -16,6 +18,8 @@ class Phone1 extends Mobile {
 }
 
 class Phone2 extends Mobile {
+  String phone_name;
+  Phone2(this.phone_name);
   @override
   void TurnOff() {
     print("Qurilma ishlashdan toxtatildi");
@@ -23,8 +27,8 @@ class Phone2 extends Mobile {
 }
 
 void main() {
-  Mobile phone1 = Phone1();
-  Mobile phone2 = Phone2();
+  Mobile phone1 = Phone1("iPhone 12 pro");
+  Mobile phone2 = Phone2("Samsung S 24 ultra");
   phone1.TurnOn();
   phone2.TurnOff();
 }
