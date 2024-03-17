@@ -1,10 +1,8 @@
 class Mobile {
   void TurnOn() {
-    print("Telefon yondi");
   }
 
   void TurnOff() {
-    print("Telefon o'chdi");
   }
 }
 
@@ -27,8 +25,8 @@ class Phone2 extends Mobile {
 }
 
 void main() {
-  Mobile phone1 = Phone1("iPhone 12 pro");
-  Mobile phone2 = Phone2("Samsung S 24 ultra");
+  Phone1 phone1 = Phone1("iPhone 12 pro");
+  Phone2 phone2 = Phone2("Samsung S 24 ultra");
   phone1.TurnOn();
   phone2.TurnOff();
 }

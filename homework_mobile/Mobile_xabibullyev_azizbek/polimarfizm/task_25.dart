@@ -9,6 +9,8 @@ class Employye {
 }
 
 class Doctor extends Employye {
+  int expriment;
+  Doctor(this.expriment);
   @override
   void Work() {
     print("Hozir ishlayapti");
@@ -21,7 +23,7 @@ class Doctor extends Employye {
 }
 
 void main() {
-  Employye person = Doctor();
+  Employye person = Doctor(15);
   person.Work();
   person.TakeWork();
 }

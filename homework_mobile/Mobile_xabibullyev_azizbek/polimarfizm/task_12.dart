@@ -19,8 +19,8 @@ class Burger extends Food {
 }
 
 void main() {
-  Food pizza = Pizza("qo'ziqorinli");
-  Food burger = Burger(2);
+  Pizza pizza = Pizza("qo'ziqorinli");
+  Burger burger = Burger(2);
 
   pizza.cook();
   burger.cook();

@@ -5,6 +5,8 @@ class Animal {
 }
 
 class Dog extends Animal {
+  String dog_name;
+  Dog(this.dog_name);
   @override
   void makeSound() {
     print('Dog :  Woof! Woof!');
@@ -12,6 +14,8 @@ class Dog extends Animal {
 }
 
 class Cat extends Animal {
+  String cat_type;
+  Cat(this.cat_type);
   @override
   void makeSound() {
     print('Cat : Meow! Meow!');
@@ -19,15 +23,18 @@ class Cat extends Animal {
 }
 
 class Cow extends Animal {
+  int count_milk;
+  Cow(this.count_milk);
   @override
   void makeSound() {
     print('Cow : Muuu ! muo! ');
   }
 }
+
 void main() {
-  Animal dog = Dog();
-  Animal cat = Cat();
-  Animal cow = Cow();
+  Animal dog = Dog("to'rt ko'z");
+  Animal cat = Cat("malla");
+  Animal cow = Cow(5);
 
   dog.makeSound();
   cat.makeSound();

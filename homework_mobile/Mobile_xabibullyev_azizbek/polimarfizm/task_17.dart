@@ -1,17 +1,15 @@
 class Fruit {
-  void Peel() {
-    print("Mevani tozalansin");
-  }
+  void Peel() {}
 
-  void Eat() {
-    print("Meva yeyilsin");
-  }
+  void Eat() {}
 }
 
-class olma extends Fruit {
+class Olma extends Fruit {
+  String color;
+  Olma(this.color);
   @override
   void Peel() {
-    print("Olma qobg'idan tozalandi ");
+    print("Olma tozalandi ");
   }
 
   @override
@@ -21,7 +19,7 @@ class olma extends Fruit {
 }
 
 void main() {
-  Fruit fruit1 = olma();
+  Fruit fruit1 = Olma("qizil");
   fruit1.Peel();
   fruit1.Eat();
 }

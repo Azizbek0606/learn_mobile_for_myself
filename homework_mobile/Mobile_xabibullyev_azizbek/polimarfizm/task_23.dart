@@ -8,7 +8,9 @@ class Media {
   }
 }
 
-class media1 extends Media {
+class Media1 extends Media {
+  String video_title;
+  Media1(this.video_title);
   @override
   void Play() {
     print("Media1 qoyildi");
@@ -21,7 +23,7 @@ class media1 extends Media {
 }
 
 void main() {
-  Media media = media1();
+  Media1 media = Media1("PDP universiteti qabul jarayonlaridan lavhalar");
   media.Play();
   media.Pause();
 }

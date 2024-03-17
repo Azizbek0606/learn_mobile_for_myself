@@ -19,8 +19,8 @@ class HealthyFood extends Food {
 }
 
 void main() {
-  Food fastfood = Fastfood();
-  Food healthyfood = HealthyFood();
+  Fastfood fastfood = Fastfood();
+  HealthyFood healthyfood = HealthyFood();
   fastfood.cook();
   healthyfood.cook();
 }

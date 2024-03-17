@@ -36,8 +36,8 @@ class QismanVaqtXodim extends Xodim {
 }
 
 void main() {
-  var tolaVaqtXodim = TolaVaqtXodim("John", "Doe", "Menejer", 4000);
-  var qismanVaqtXodim = QismanVaqtXodim("Jane", "Smith", "Yardamchi", 20, 15.5);
+  TolaVaqtXodim tolaVaqtXodim = TolaVaqtXodim("John", "Doe", "Menejer", 4000);
+  QismanVaqtXodim qismanVaqtXodim = QismanVaqtXodim("Jane", "Smith", "Yardamchi", 20, 15.5);
 
   print(
       "${tolaVaqtXodim.ism}ning maoshi: ${tolaVaqtXodim.HisoblashMaoshi()} so'm");

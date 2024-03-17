@@ -1,40 +1,40 @@
 class Mobile {
-  void TurnOn() {
-    print("Telefon yondi");
-  }
+  void TurnOn() {}
 
-  void TurnOff() {
-    print("Telefon o'chdi");
-  }
+  void TurnOff() {}
 }
 
 class SmartPhone extends Mobile {
+  String phone_name;
+  SmartPhone(this.phone_name);
   @override
   void TurnOn() {
-    print("Smartphone Ishga Tushdi");
+    print("smartfon Ishga Tushdi");
   }
 
   @override
   void TurnOff() {
-    print("Smartphone ishlashdan toxtadi");
+    print("smartfon ishlashdan toxtadi");
   }
 }
 
 class Planshet extends Mobile {
+  String tablet_name;
+  Planshet(this.tablet_name);
   @override
   void TurnOn() {
-    print("Planshet ishga tushdi");
+    print("planshet ishga tushdi");
   }
 
   @override
   void TurnOff() {
-    print("Planshet  ishlashdan toxtadi");
+    print("planshet  ishlashdan toxtadi");
   }
 }
 
 void main() {
-  Mobile smartphone = SmartPhone();
-  Mobile planshet = Planshet();
+  SmartPhone smartphone = SmartPhone("iPhone 12 pro");
+  Planshet planshet = Planshet("iPad 5");
   smartphone.TurnOn();
   smartphone.TurnOff();
   planshet.TurnOn();

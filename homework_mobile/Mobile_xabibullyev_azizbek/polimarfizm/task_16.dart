@@ -1,10 +1,10 @@
 class Shape {
-  void Draw() {
-    print("Shakl chizildi");
-  }
+  void Draw() {}
 }
 
 class Kvadart extends Shape {
+  int perimetr;
+  Kvadart(this.perimetr);
   @override
   void Draw() {
     print("Kvadrat chizildi");
@@ -12,6 +12,8 @@ class Kvadart extends Shape {
 }
 
 class Uchburchak extends Shape {
+  int height;
+  Uchburchak(this.height);
   @override
   void Draw() {
     print("Uchburchak  chizildi");
@@ -19,6 +21,8 @@ class Uchburchak extends Shape {
 }
 
 class Doira extends Shape {
+  int radius;
+  Doira(this.radius);
   @override
   void Draw() {
     print("Doira chizildi");
@@ -26,9 +30,9 @@ class Doira extends Shape {
 }
 
 void main() {
-  Shape kvadrat = Kvadart();
-  Shape uchburchak = Uchburchak();
-  Shape doira = Doira();
+  Kvadart kvadrat = Kvadart(36);
+  Uchburchak uchburchak = Uchburchak(36);
+  Doira doira = Doira(23);
   kvadrat.Draw();
   uchburchak.Draw();
   doira.Draw();

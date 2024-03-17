@@ -1,17 +1,19 @@
 class Instument {
   void Play() {
-    print("Chalishni boshla");
+    print("foydalanish");
   }
 }
 
-class insturment1 extends Instument {
+class Instrument1 extends Instument {
+  String qanday_instrument;
+  Instrument1(this.qanday_instrument);
   @override
   void Play() {
-    print("insturmentni chalib boshladim ");
+    print("insturment chalina boshlandi ");
   }
 }
 
 void main() {
-  Instument forinsturment = insturment1();
+  Instument forinsturment = Instrument1("gitara");
   forinsturment.Play();
 }

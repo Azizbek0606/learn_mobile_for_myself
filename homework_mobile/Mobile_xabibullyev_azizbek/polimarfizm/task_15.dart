@@ -1,10 +1,10 @@
 class Shape {
-  void Draw() {
-    print("Shakl chizildi");
-  }
+  void Draw() {}
 }
 
 class Doira extends Shape {
+  int radius;
+  Doira(this.radius);
   @override
   void Draw() {
     print("Doira chizildi");
@@ -12,6 +12,6 @@ class Doira extends Shape {
 }
 
 void main() {
-  Shape doira = Doira();
+  Doira doira = Doira(25);
   doira.Draw();
 }

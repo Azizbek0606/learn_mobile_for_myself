@@ -4,11 +4,13 @@ class Shape {
   }
 
   void Move() {
-    print("Shak harakat;andi");
+    print("Shakl harakatlandi");
   }
 }
 
 class Kvadart extends Shape {
+  int perimetr;
+  Kvadart(this.perimetr);
   @override
   void Draw() {
     print("Kvadrat chizildi");
@@ -21,7 +23,7 @@ class Kvadart extends Shape {
 }
 
 void main() {
-  Shape kvadrat = Kvadart();
+  Shape kvadrat = Kvadart(35);
   kvadrat.Draw();
   kvadrat.Move();
 }

@@ -9,6 +9,8 @@ class Vehicle {
 }
 
 class Car extends Vehicle {
+  int speed;
+  Car(this.speed);
   @override
   void start() {
     print('The car engine has started.');
@@ -21,6 +23,8 @@ class Car extends Vehicle {
 }
 
 class Bike extends Vehicle {
+  int price;
+  Bike(this.price);
   @override
   void start() {
     print('The bike engine has started.');
@@ -33,12 +37,12 @@ class Bike extends Vehicle {
 }
 
 void main() {
-  Car myCar = Car();
+  Car myCar = Car(350);
 
   myCar.start();
   myCar.stop();
 
-  Bike myBike = Bike();
+  Bike myBike = Bike(125000);
 
   myBike.start();
   myBike.stop();

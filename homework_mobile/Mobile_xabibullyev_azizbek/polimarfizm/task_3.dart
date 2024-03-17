@@ -9,6 +9,8 @@ class Vehicle {
 }
 
 class Bike extends Vehicle {
+  int price;
+  Bike(this.price);
   @override
   void Start() {
     print("velosiped yurdi");
@@ -21,7 +23,7 @@ class Bike extends Vehicle {
 
 
 void main() {
-  Bike myVehicle = Bike();
+  Bike myVehicle = Bike(35600);
 
   myVehicle.Start();
   myVehicle.Stop();

@@ -9,6 +9,8 @@ class Media {
 }
 
 class Audio extends Media {
+  int how_long;
+  Audio(this.how_long);
   @override
   void Play() {
     print("Audio qoyildi");
@@ -21,6 +23,8 @@ class Audio extends Media {
 }
 
 class Video extends Media {
+  String name;
+  Video(this.name);
   @override
   void Play() {
     print("Video qoyildi");
@@ -33,6 +37,8 @@ class Video extends Media {
 }
 
 class Image extends Media {
+  int size;
+  Image(this.size);
   @override
   void Play() {
     print("Rasm qoyildi qoyildi");
@@ -45,16 +51,16 @@ class Image extends Media {
 }
 
 void main() {
-  Media audio = Audio();
-  Media video = Video();
-  Media image = Image();
+  Media audio = Audio(12);
+  Media video = Video("Dart polimarfizm darsligi");
+  Media image = Image(35);
 
   audio.Play();
   audio.Pause();
-  
+
   video.Play();
   video.Pause();
-  
+
   image.Play();
   image.Pause();
 }

@@ -9,6 +9,8 @@ class Employye {
 }
 
 class Developer extends Employye {
+  int how_much_language;
+  Developer(this.how_much_language);
   @override
   void Work() {
     print(" Developer Hozir ishlayapti !");
@@ -21,6 +23,8 @@ class Developer extends Employye {
 }
 
 class Manager extends Employye {
+  int projects_count;
+  Manager(this.projects_count);
   @override
   void Work() {
     print(" Manager Hozir ishlayapti !");
@@ -33,6 +37,8 @@ class Manager extends Employye {
 }
 
 class Desinger extends Employye {
+  int projects_count;
+  Desinger(this.projects_count);
   @override
   void Work() {
     print(" Desinger Hozir ishlayapti ! ");
@@ -45,15 +51,15 @@ class Desinger extends Employye {
 }
 
 void main() {
-  Employye developer = Developer();
-  Employye manager = Manager();
-  Employye desinger = Desinger();
+  Employye developer = Developer(15);
+  Employye manager = Manager(15);
+  Employye desinger = Desinger(15);
   developer.Work();
   developer.TakeWork();
 
   manager.Work();
   manager.TakeWork();
-  
+
   desinger.Work();
   desinger.TakeWork();
 }

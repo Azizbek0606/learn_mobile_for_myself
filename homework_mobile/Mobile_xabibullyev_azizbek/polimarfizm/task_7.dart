@@ -4,7 +4,9 @@ class Employee {
   }
 }
 
-class Gayrat extends Employee {
+class Hodim extends Employee {
+  String name;
+  Hodim(this.name);
   @override
   void calculateSalary() {
     print("Ish haqi to'landi");
@@ -12,6 +14,6 @@ class Gayrat extends Employee {
 }
 
 void main() {
-  Employee gayrat = Gayrat();
+  Hodim gayrat = Hodim("Azizbek");
   gayrat.calculateSalary();
 }

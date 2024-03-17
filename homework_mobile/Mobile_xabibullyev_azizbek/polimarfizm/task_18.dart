@@ -8,7 +8,9 @@ class Fruit {
   }
 }
 
-class olma extends Fruit {
+class Olma extends Fruit {
+  String color;
+  Olma(this.color);
   @override
   void Peel() {
     print("Olma qobg'idan tozalandi ");
@@ -21,6 +23,8 @@ class olma extends Fruit {
 }
 
 class Banana extends Fruit {
+  int price;
+  Banana(this.price);
   @override
   void Peel() {
     print("Banan qobg'idan tozalandi ");
@@ -33,6 +37,8 @@ class Banana extends Fruit {
 }
 
 class Apelsin extends Fruit {
+  String country;
+  Apelsin(this.country);
   @override
   void Peel() {
     print("Apelsin qobg'idan tozalandi ");
@@ -45,16 +51,16 @@ class Apelsin extends Fruit {
 }
 
 void main() {
-  Fruit olma1 = olma();
-  Fruit banan1 = Banana();
-  Fruit apelsen1 = Apelsin();
+  Fruit olma1 = Olma("qizil");
+  Fruit banan1 = Banana(12000);
+  Fruit apelsen1 = Apelsin("O'zbekiston");
 
   olma1.Peel();
   olma1.Eat();
-  
+
   banan1.Peel();
   banan1.Eat();
-  
+
   apelsen1.Peel();
   apelsen1.Eat();
 }
