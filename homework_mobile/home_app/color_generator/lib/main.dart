@@ -1,31 +1,49 @@
 import 'dart:math';
+import 'dart:ui';
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: Colors.black,
-        appBarTheme: AppBarTheme(
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          titleTextStyle: TextStyle(
-            color: Colors.white,
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Dynamic UI'),
+          title: Text('Color Generator'),
           centerTitle: true,
+          backgroundColor: Colors.grey[900],
         ),
-        body: MyWidget(),
+        backgroundColor: Colors.grey[900],
+        body: Center(
+          child: Container(
+            width: 350,
+            height: 350,
+            padding: EdgeInsets.all(20),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              gradient: LinearGradient(
+                begin: Alignment.topRight,
+                end: Alignment.bottomLeft,
+                colors: [
+                  Colors.deepPurple[700]!,
+                  Colors.blue[400]!,
+                ],
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.3),
+                  spreadRadius: 5,
+                  blurRadius: 10,
+                  offset: Offset(0, 3),
+                ),
+              ],
+            ),
+            child: MyWidget(),
+          ),
+        ),
       ),
     );
   }
@@ -37,87 +55,83 @@ class MyWidget extends StatefulWidget {
 }
 
 class _MyWidgetState extends State<MyWidget> {
-  double width = 50; // Blokning boshlang'ich eni
-  Color color = Colors.blue; // Blokning boshlang'ich rangi
+  double _width = 50;
+  Color _color = Colors.blue;
+  String _colorCode = 'RGBA(0, 0, 255, 1.0)';
 
   void _increaseWidth() {
     setState(() {
-      width = width >= 300
-          ? 50
-          : width +
-              10; // Agar eni 300 dan katta bo'lsa, 50 ga qaytaradi, aks holda 10 ga oshiradi
+      _width = _width >= 300 ? 50 : _width + 50;
     });
   }
 
   void _changeColor() {
     final random = Random();
     setState(() {
-      color = Color.fromRGBO(random.nextInt(256), random.nextInt(256),
-          random.nextInt(256), 1); // Blokning rangini tasodifiy o'zgartiradi
+      _color = Color.fromRGBO(
+          random.nextInt(256), random.nextInt(256), random.nextInt(256), 1);
+      _colorCode =
+          'RGBA(${_color.red}, ${_color.green}, ${_color.blue}, ${_color.opacity})';
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          ElevatedButton(
-            onPressed: _increaseWidth,
-            child: Text('Increase Width'),
-            style: ElevatedButton.styleFrom(
-              primary: Colors.deepPurple,
-              onPrimary: Colors.white,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20),
-              ),
-              padding: EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+    return Column(
+      mainAxisAlignment:
+          MainAxisAlignment.center,
+      children: <Widget>[
+        ElevatedButton(
+          onPressed: _increaseWidth,
+          child: Text('Increase Width'),
+          style: ElevatedButton.styleFrom(
+            primary: Colors.deepPurple,
+            onPrimary: Colors.white,
+          ),
+        ),
+        SizedBox(height: 20),
+        AnimatedContainer(
+          duration: Duration(milliseconds: 200),
+          curve: Curves.easeInOut,
+          width: _width,
+          height: 50,
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Color(0xff591367), Color(0xff09092a)],
+              stops: [0, 1],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+            borderRadius: BorderRadius.circular(20),
+          ),
+        ),
+        SizedBox(height: 40),
+        ElevatedButton(
+          onPressed: _changeColor,
+          child: Text('Change Color'),
+          style: ElevatedButton.styleFrom(
+            primary: Colors.green,
+            onPrimary: Colors.white,
+          ),
+        ),
+        SizedBox(height: 20),
+        Container(
+          width: 200,
+          height: 100,
+          decoration: BoxDecoration(
+            color: _color,
+            borderRadius: BorderRadius.circular(20),
+          ),
+          alignment: Alignment.center,
+          child: SelectableText(
+            _colorCode,
+            style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
             ),
           ),
-          SizedBox(height: 20),
-          AnimatedContainer(
-            duration: Duration(milliseconds: 500),
-            curve: Curves.easeInOut,
-            width: width,
-            height: 50,
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [Color(0xff591367), Color(0xff09092a)],
-                stops: [0, 1],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-              ),
-              borderRadius:
-                  BorderRadius.circular(20), // Chegara radiusi qo'shildi
-            ),
-          ),
-          SizedBox(height: 40),
-          ElevatedButton(
-            onPressed: _changeColor,
-            child: Text('Change Color'),
-            style: ElevatedButton.styleFrom(
-              primary: Colors.green,
-              onPrimary: Colors.white,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20),
-              ),
-              padding: EdgeInsets.symmetric(horizontal: 32, vertical: 16),
-            ),
-          ),
-          SizedBox(height: 20),
-          AnimatedContainer(
-            duration: Duration(milliseconds: 500),
-            curve: Curves.easeInOut,
-            width: 100, // Blokning eni
-            height: 100, // Blokning bo'yi
-            decoration: BoxDecoration(
-              color: color, // Blokning rangi
-              borderRadius: BorderRadius.circular(20),
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
