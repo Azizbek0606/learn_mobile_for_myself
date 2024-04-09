@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -6,9 +7,23 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData.dark().copyWith(
+        scaffoldBackgroundColor: Colors.black,
+        appBarTheme: AppBarTheme(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          titleTextStyle: TextStyle(
+            color: Colors.white,
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Flutter Demo'),
+          title: Text('Dynamic UI'),
+          centerTitle: true,
         ),
         body: MyWidget(),
       ),
@@ -22,22 +37,23 @@ class MyWidget extends StatefulWidget {
 }
 
 class _MyWidgetState extends State<MyWidget> {
-  int red = 255;
-  int green = 0;
-  int blue = 0;
-  double length = 50;
+  double width = 50; // Blokning boshlang'ich eni
+  Color color = Colors.blue; // Blokning boshlang'ich rangi
 
-  void _changeColor() {
+  void _increaseWidth() {
     setState(() {
-      red = (red + 30) % 256;
-      green = (green + 60) % 256;
-      blue = (blue + 90) % 256;
+      width = width >= 300
+          ? 50
+          : width +
+              10; // Agar eni 300 dan katta bo'lsa, 50 ga qaytaradi, aks holda 10 ga oshiradi
     });
   }
 
-  void _increaseLength() {
+  void _changeColor() {
+    final random = Random();
     setState(() {
-      length += 10;
+      color = Color.fromRGBO(random.nextInt(256), random.nextInt(256),
+          random.nextInt(256), 1); // Blokning rangini tasodifiy o'zgartiradi
     });
   }
 
@@ -47,53 +63,58 @@ class _MyWidgetState extends State<MyWidget> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Padding(
-            padding: EdgeInsets.all(10),
-            child: TextButton(
-              onPressed: _changeColor,
-              child: Text('Change Color'),
-              style: TextButton.styleFrom(
-                primary: Colors.white,
-                backgroundColor: Colors.green,
-              ),
-            ),
-          ),
-          Container(
-            width: 400,
-            height: 400,
-            decoration: BoxDecoration(
-              color: Color.fromARGB(255, red, green, blue),
-              border: Border.all(
-                color: Color.fromARGB(
-                    255, 0, 216, 249),
-                width: 1,
-              ),
-              borderRadius: BorderRadius.circular(20),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black
-                      .withOpacity(0.5), 
-                  spreadRadius: 5,
-                  blurRadius: 7,
-                  offset: Offset(0, 3),
-                ),
-              ],
-            ),
-          ),
-          SizedBox(height: 20),
-          TextButton(
-            onPressed: _increaseLength,
+          ElevatedButton(
+            onPressed: _increaseWidth,
             child: Text('Increase Width'),
-            style: TextButton.styleFrom(
-              primary: Colors.white,
-              backgroundColor: Colors.blue,
+            style: ElevatedButton.styleFrom(
+              primary: Colors.deepPurple,
+              onPrimary: Colors.white,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
+              ),
+              padding: EdgeInsets.symmetric(horizontal: 32, vertical: 16),
             ),
           ),
           SizedBox(height: 20),
-          Container(
-            width: length,
+          AnimatedContainer(
+            duration: Duration(milliseconds: 500),
+            curve: Curves.easeInOut,
+            width: width,
             height: 50,
-            color: Colors.blue,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [Color(0xff591367), Color(0xff09092a)],
+                stops: [0, 1],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              ),
+              borderRadius:
+                  BorderRadius.circular(20), // Chegara radiusi qo'shildi
+            ),
+          ),
+          SizedBox(height: 40),
+          ElevatedButton(
+            onPressed: _changeColor,
+            child: Text('Change Color'),
+            style: ElevatedButton.styleFrom(
+              primary: Colors.green,
+              onPrimary: Colors.white,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
+              ),
+              padding: EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+            ),
+          ),
+          SizedBox(height: 20),
+          AnimatedContainer(
+            duration: Duration(milliseconds: 500),
+            curve: Curves.easeInOut,
+            width: 100, // Blokning eni
+            height: 100, // Blokning bo'yi
+            decoration: BoxDecoration(
+              color: color, // Blokning rangi
+              borderRadius: BorderRadius.circular(20),
+            ),
           ),
         ],
       ),
