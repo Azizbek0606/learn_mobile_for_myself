@@ -1,14 +1,16 @@
- class Product {
+class Product {
   final int id;
   final String title;
   final String description;
   final String imageUrl;
+
   Product({
     required this.id,
     required this.title,
     required this.description,
     required this.imageUrl,
   });
+
   factory Product.fromJson(Map<String, dynamic> json) {
     return Product(
       id: json['id'] as int,
@@ -17,4 +19,8 @@
       imageUrl: json['thumbnailUrl'] as String,
     );
   }
+
+  get price => null;
+
+  static getMockProducts(int i) {}
 }

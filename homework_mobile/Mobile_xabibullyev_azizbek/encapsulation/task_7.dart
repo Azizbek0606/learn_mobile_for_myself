@@ -29,7 +29,7 @@ class Student {
       _ball = new_ball;
     }
   }
-
+  set new_width(new_value) => this._age = new_value;
   get get_name => _name;
   get get_age => _age;
   get get_ball => _ball;
