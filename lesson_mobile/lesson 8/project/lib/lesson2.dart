@@ -12,7 +12,8 @@ class _Lesson2State extends State<Lesson2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
+      body:
+       Container(
         height: MediaQuery.sizeOf(context).height,
         width: 500,
         color: Colors.red,
