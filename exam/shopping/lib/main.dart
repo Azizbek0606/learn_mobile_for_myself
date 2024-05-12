@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'full_app.dart'; // FullApplication'ni import qilish
+import 'full_app.dart';
+import 'login.dart';
 
 void main() {
   runApp(MyApp());

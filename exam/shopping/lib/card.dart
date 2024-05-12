@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class ProductCard extends StatelessWidget {
-  final String name; // Mahsulot nomi
-  final double price; // Mahsulot narxi
-  final String imageUrl; // Mahsulot rasmi URL manzili
+  final String name;
+  final double price;
+  final String imageUrl;
 
   ProductCard({
     required this.name,
@@ -30,7 +30,7 @@ class ProductCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 AspectRatio(
-                  aspectRatio: 1.5, // Bu yerda rasmlar nisbati 3:2
+                  aspectRatio: 1.5,
                   child: Container(
                     width: cardWidth,
                     decoration: BoxDecoration(
@@ -45,7 +45,7 @@ class ProductCard extends StatelessWidget {
                         fit: BoxFit.cover,
                         loadingBuilder: (BuildContext context, Widget child, ImageChunkEvent? loadingProgress) {
                           if (loadingProgress == null) {
-                            return child; // Rasm muammosiz yuklangan bo'lsa
+                            return child;
                           }
                           return Center(
                             child: CircularProgressIndicator(
@@ -57,8 +57,7 @@ class ProductCard extends StatelessWidget {
                         },
                         errorBuilder: (BuildContext context, Object exception, StackTrace? stackTrace) {
                           return Center(
-                            child: Icon(Icons.error, color: Colors.red), // Rasm yuklanishida xato bo'lsa
-                          );
+                            child: Icon(Icons.error, color: Colors.red),                       );
                         },
                       ),
                     ),
