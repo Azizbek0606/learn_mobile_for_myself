@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class ProductCard extends StatelessWidget {
   final String name; // Mahsulot nomi
-  final int price; // Mahsulot narxi
+  final double price; // Mahsulot narxi
   final String imageUrl; // Mahsulot rasmi URL manzili
 
   ProductCard({
@@ -17,35 +17,50 @@ class ProductCard extends StatelessWidget {
       padding: const EdgeInsets.all(10),
       child: LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
-          double cardHeight =
-              constraints.maxHeight * 0.60; // Cardning 45% balandligi
-          double cardWidth = constraints.maxWidth; // Cardning to'liq kengligi
+          double cardWidth = constraints.maxWidth;
 
           return Card(
             clipBehavior: Clip.antiAlias,
             elevation: 5,
-            color: Colors.black,
+            color: Color(0xFF132113),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Container(
-                  width: double.infinity, // Container to'liq en
-                  height: cardHeight, // 45% Card balandligi
-                  decoration: BoxDecoration(
-                    color: Colors.grey[200],
-                    border: Border.all(color: Colors.grey[400]!, width: 1),
-                    borderRadius:
-                        BorderRadius.vertical(top: Radius.circular(10)),
-                  ),
-                  child: ClipRRect(
-                    borderRadius:
-                        BorderRadius.vertical(top: Radius.circular(10)),
-                    child: Image.network(
-                      imageUrl,
-                      fit: BoxFit.cover,
+                AspectRatio(
+                  aspectRatio: 1.5, // Bu yerda rasmlar nisbati 3:2
+                  child: Container(
+                    width: cardWidth,
+                    decoration: BoxDecoration(
+                      color: Colors.grey[200],
+                      border: Border.all(color: Colors.white, width: 1),
+                      borderRadius: BorderRadius.vertical(top: Radius.circular(10)),
+                    ),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.vertical(top: Radius.circular(10)),
+                      child: Image.network(
+                        imageUrl,
+                        fit: BoxFit.cover,
+                        loadingBuilder: (BuildContext context, Widget child, ImageChunkEvent? loadingProgress) {
+                          if (loadingProgress == null) {
+                            return child; // Rasm muammosiz yuklangan bo'lsa
+                          }
+                          return Center(
+                            child: CircularProgressIndicator(
+                              value: loadingProgress.expectedTotalBytes != null ?
+                              loadingProgress.cumulativeBytesLoaded / loadingProgress.expectedTotalBytes! :
+                              null,
+                            ),
+                          );
+                        },
+                        errorBuilder: (BuildContext context, Object exception, StackTrace? stackTrace) {
+                          return Center(
+                            child: Icon(Icons.error, color: Colors.red), // Rasm yuklanishida xato bo'lsa
+                          );
+                        },
+                      ),
                     ),
                   ),
                 ),
@@ -85,27 +100,23 @@ class ProductCard extends StatelessWidget {
                       Row(
                         children: [
                           Expanded(
-                            flex: 7, // 70% kenglik
+                            flex: 7,
                             child: ElevatedButton(
-                              onPressed: () {}, // Savatga qo'shish amali
+                              onPressed: () {},
                               child: Text('Add to Cart'),
                               style: ElevatedButton.styleFrom(
-                                primary: Colors.grey[800], // Tugma fon rangi
+                                primary: Color(0xFF132123),
                               ),
                             ),
                           ),
-                          SizedBox(
-                              width:
-                                  10), // Orasiga 10 piksel bo'sh joy qo'shildi
+                          SizedBox(width: 10),
                           Expanded(
-                            flex: 3, // 30% kenglik
+                            flex: 3,
                             child: ElevatedButton(
-                              onPressed:
-                                  () {}, // Istaklar ro'yxatiga qo'shish amali
-                              child: Icon(Icons.favorite,
-                                  color: Colors.white), // Yurakcha ikonka
+                              onPressed: () {},
+                              child: Icon(Icons.favorite, color: Colors.white),
                               style: ElevatedButton.styleFrom(
-                                primary: Colors.grey[800], // Tugma fon rangi
+                                backgroundColor: Color(0xFF132123),
                               ),
                             ),
                           ),

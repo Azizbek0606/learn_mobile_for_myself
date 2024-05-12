@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'card_wrapper.dart'; // Import ProductGrid
+import 'full_app.dart'; // FullApplication'ni import qilish
 
 void main() {
   runApp(MyApp());
@@ -9,12 +9,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Products Display'),
-        ),
-        body: ProductGrid(), // ProductGrid widgetini ishlatamiz
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        scaffoldBackgroundColor: Color(0xFF132129),
       ),
+      home: FullApplication(),
     );
   }
 }
