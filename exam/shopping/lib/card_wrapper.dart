@@ -32,10 +32,15 @@ class _ProductGridState extends State<ProductGrid> {
     String query = searchController.text;
     setState(() {
       displayedProducts = allProducts.where((product) {
-        final matchesQuery = product['name'].toLowerCase().contains(query.toLowerCase());
-        final matchesCategory = selectedCategory == null || product['category'] == selectedCategory;
-        final matchesPrice = selectedPriceRange == null || (selectedPriceRange == "Cheap" && product['price'] <= 1000) ||
-            (selectedPriceRange == "Medium" && product['price'] > 1000 && product['price'] <= 2000) ||
+        final matchesQuery =
+            product['name'].toLowerCase().contains(query.toLowerCase());
+        final matchesCategory =
+            selectedCategory == null || product['category'] == selectedCategory;
+        final matchesPrice = selectedPriceRange == null ||
+            (selectedPriceRange == "Cheap" && product['price'] <= 1000) ||
+            (selectedPriceRange == "Medium" &&
+                product['price'] > 1000 &&
+                product['price'] <= 2000) ||
             (selectedPriceRange == "Expensive" && product['price'] > 2000);
         return matchesQuery && matchesCategory && matchesPrice;
       }).toList();
@@ -43,7 +48,8 @@ class _ProductGridState extends State<ProductGrid> {
   }
 
   Widget _buildCategoryDropdown() {
-    var categories = allProducts.map((product) => product['category']).toSet().toList();
+    var categories =
+        allProducts.map((product) => product['category']).toSet().toList();
     categories.sort();
 
     return DropdownButton<String?>(
@@ -58,18 +64,23 @@ class _ProductGridState extends State<ProductGrid> {
           _runFilter();
         });
       },
-      items: [DropdownMenuItem<String?>(value: null, child: Text("All", style: TextStyle(color: Colors.white)))] +
-          categories.map((value) => DropdownMenuItem<String?>(
-            value: value,
-            child: Text(value, style: TextStyle(color: Colors.white)),
-          )).toList(),
+      items: [
+            DropdownMenuItem<String?>(
+                value: null,
+                child: Text("All", style: TextStyle(color: Colors.white)))
+          ] +
+          categories
+              .map((value) => DropdownMenuItem<String?>(
+                    value: value,
+                    child: Text(value, style: TextStyle(color: Colors.white)),
+                  ))
+              .toList(),
       dropdownColor: Color(0xFF132123), // Dropdown rangi
       isExpanded: true,
       style: TextStyle(color: Colors.white),
       iconEnabledColor: Colors.white,
     );
   }
-
 
   Widget _buildPriceDropdown() {
     List<String> prices = ["Cheap", "Medium", "Expensive"];
@@ -84,10 +95,12 @@ class _ProductGridState extends State<ProductGrid> {
           });
         },
         underline: Container(),
-        items: prices.map((value) => DropdownMenuItem<String?>(
-          value: value,
-          child: Text(value),
-        )).toList(),
+        items: prices
+            .map((value) => DropdownMenuItem<String?>(
+                  value: value,
+                  child: Text(value),
+                ))
+            .toList(),
         isExpanded: false,
         icon: Icon(Icons.more_vert),
         selectedItemBuilder: (BuildContext context) {
@@ -102,6 +115,7 @@ class _ProductGridState extends State<ProductGrid> {
     );
   }
 
+
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
@@ -110,41 +124,44 @@ class _ProductGridState extends State<ProductGrid> {
 
     return Column(
       children: [
-    Padding(
-    padding: EdgeInsets.all(10.0),
-    child: Row(
-    children: [
-    Container(
-    width: MediaQuery.of(context).size.width * 0.4, // Ekranning 50% kengligi
-    child: TextField(
-    controller: searchController,
-    decoration: InputDecoration(
-    labelText: 'Search',
-    suffixIcon: Icon(Icons.search),
-    border: OutlineInputBorder(),
-    ),
-    ),
-    ),
-    SizedBox(width: 10),
-    Expanded(
-    child: _buildCategoryDropdown(),
-    ),
-    SizedBox(width: 10),
-    Expanded(
-    child: _buildPriceDropdown(),
-    ),
-    ],
-    ),
-    ),
-    Expanded(
+        Padding(
+          padding: EdgeInsets.all(10.0),
+          child: Row(
+            children: [
+              Container(
+                width: MediaQuery.of(context).size.width *
+                    0.4, // Ekranning 50% kengligi
+                child: TextField(
+                  controller: searchController,
+                  decoration: InputDecoration(
+                    labelText: 'Search',
+                    suffixIcon: Icon(Icons.search),
+                    border: OutlineInputBorder(),
+                  ),
+                ),
+              ),
+              SizedBox(width: 10),
+              Expanded(
+                child: _buildCategoryDropdown(),
+              ),
+              SizedBox(width: 10),
+              Expanded(
+                child: _buildPriceDropdown(),
+              ),
+            ],
+          ),
+        ),
+        Expanded(
           child: GridView.count(
             crossAxisCount: 2,
             childAspectRatio: (screenWidth / 2) / (screenHeight / 2.2),
-            children: displayedProducts.map((product) => ProductCard(
-              name: product['name'],
-              price: product['price'],
-              imageUrl: product['imageUrl'],
-            )).toList(),
+            children: displayedProducts
+                .map((product) => ProductCard(
+                      name: product['name'],
+                      price: product['price'],
+                      imageUrl: product['imageUrl'],
+                    ))
+                .toList(),
             padding: EdgeInsets.all(spacing),
             mainAxisSpacing: spacing,
             crossAxisSpacing: spacing,
