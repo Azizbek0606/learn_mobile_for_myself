@@ -17,11 +17,11 @@ class _LoginState extends State<LoginPage> {
       _formKey.currentState!.save();
       print('Username: $_username, Password: $_password');
 
-      if (_username == 'User' && _password == 'parol123') {
+      if (_username == 'user' && _password == 'user123') {
         Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => FullApplication()));
         user_data[0]['logged_in'] = true;
         user_data[0]['who'] = 'user';
-      } else if (_username == 'admin' && _password == 'parol321') {
+      } else if (_username == 'admin' && _password == 'admin123') {
         Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => AdminPage()));
         user_data[0]['logged_in'] = true;
         user_data[0]['who'] = 'admin';

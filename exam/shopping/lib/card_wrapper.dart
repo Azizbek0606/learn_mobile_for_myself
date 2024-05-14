@@ -75,7 +75,7 @@ class _ProductGridState extends State<ProductGrid> {
                     child: Text(value, style: TextStyle(color: Colors.white)),
                   ))
               .toList(),
-      dropdownColor: Color(0xFF132123), // Dropdown rangi
+      dropdownColor: Color(0xFF132123),
       isExpanded: true,
       style: TextStyle(color: Colors.white),
       iconEnabledColor: Colors.white,
@@ -101,7 +101,10 @@ class _ProductGridState extends State<ProductGrid> {
                   child: Text(value),
                 ))
             .toList(),
+        dropdownColor: Color(0xFF132123),
         isExpanded: false,
+        style: TextStyle(color: Colors.white),
+        iconEnabledColor: Colors.white,
         icon: Icon(Icons.more_vert),
         selectedItemBuilder: (BuildContext context) {
           return prices.map<Widget>((String value) {
@@ -114,7 +117,6 @@ class _ProductGridState extends State<ProductGrid> {
       ),
     );
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -129,14 +131,29 @@ class _ProductGridState extends State<ProductGrid> {
           child: Row(
             children: [
               Container(
-                width: MediaQuery.of(context).size.width *
-                    0.4, // Ekranning 50% kengligi
+                width: MediaQuery.of(context).size.width * 0.4,
                 child: TextField(
                   controller: searchController,
+                  style: TextStyle(
+                      color: Colors.white),
                   decoration: InputDecoration(
                     labelText: 'Search',
-                    suffixIcon: Icon(Icons.search),
-                    border: OutlineInputBorder(),
+                    labelStyle: TextStyle(
+                        color:
+                            Colors.white),
+                    suffixIcon: Icon(Icons.search, color: Colors.white),
+                    hintText: 'Enter search term',
+                    hintStyle: TextStyle(
+                        color:
+                            Colors.white),
+                    enabledBorder: OutlineInputBorder(
+                      // Normal holatdagi chegarani o'rnatish
+                      borderSide: BorderSide(color: Colors.white),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      // Fokuslanganda chegarani o'rnatish
+                      borderSide: BorderSide(color: Colors.white),
+                    ),
                   ),
                 ),
               ),
